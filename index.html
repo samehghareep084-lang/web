@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>بيت الحلو | حلويات طازجة</title>
+  <meta name="description" content="متجر حلويات شرقية وغربية وكيك، اطلب الآن واستلم طلبك طازجاً.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#top" class="brand" id="brandName">🍰 بيت الحلو</a>
+      <nav class="nav">
+        <a href="#menu">المنتجات</a>
+        <a href="#about">من نحن</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+      <button class="cart-btn" id="openCart" aria-label="فتح السلة">
+        🛒 <span>السلة</span> <b id="cartCount">0</b>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <h1 id="heroTitle">بيت الحلو</h1>
+      <p id="heroTagline">حلويات طازجة تُصنع بحب كل يوم</p>
+      <a href="#menu" class="btn btn-primary">اطلب الآن</a>
+    </div>
+  </section>
+
+  <main class="container" id="menu">
+    <h2 class="section-title">منتجاتنا</h2>
+    <div class="filters" id="filters" role="tablist" aria-label="تصنيفات المنتجات"></div>
+    <div class="grid" id="grid" aria-live="polite">
+      <p class="muted">جاري التحميل…</p>
+    </div>
+  </main>
+
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title">من نحن</h2>
+      <p>نصنع حلوياتنا يومياً من مكونات طبيعية وسمن وزبدة عالية الجودة، بوصفات تتوارثها العائلة. كل طلب يُجهَّز عند الطلب ليصلك طازجاً.</p>
+      <ul class="features">
+        <li>🌿 مكونات طبيعية</li>
+        <li>🔥 تُحضَّر عند الطلب</li>
+        <li>🚚 توصيل سريع</li>
+        <li>🎂 تصاميم حسب الطلب</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-inner">
+      <div>
+        <h3 id="footName">بيت الحلو</h3>
+        <p id="footAddress"></p>
+        <p id="footPhone"></p>
+      </div>
+      <a id="waLink" class="btn btn-wa" href="#" target="_blank" rel="noopener">💬 تواصل عبر واتساب</a>
+    </div>
+    <p class="copy">© <span id="year"></span> جميع الحقوق محفوظة</p>
+  </footer>
+
+  <!-- السلة -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="سلة المشتريات">
+    <div class="drawer-head">
+      <h2>سلة المشتريات</h2>
+      <button class="icon-btn" id="closeCart" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-foot" id="cartFoot"></div>
+  </aside>
+
+  <!-- نموذج الطلب -->
+  <div class="modal" id="checkoutModal" aria-hidden="true">
+    <form class="modal-card" id="checkoutForm" novalidate>
+      <div class="drawer-head">
+        <h2>إتمام الطلب</h2>
+        <button type="button" class="icon-btn" id="closeCheckout" aria-label="إغلاق">✕</button>
+      </div>
+      <label>الاسم الكامل
+        <input name="customer_name" required maxlength="80" autocomplete="name">
+      </label>
+      <label>رقم الهاتف
+        <input name="phone" required maxlength="20" inputmode="tel" autocomplete="tel" dir="ltr" style="text-align:right">
+      </label>
+      <label>عنوان التوصيل
+        <textarea name="address" rows="2" required maxlength="250" autocomplete="street-address"></textarea>
+      </label>
+      <label>ملاحظات (اختياري)
+        <textarea name="notes" rows="2" maxlength="300" placeholder="مثال: كتابة اسم على الكيكة"></textarea>
+      </label>
+      <div class="summary" id="checkoutSummary"></div>
+      <p class="form-error" id="formError" role="alert"></p>
+      <button class="btn btn-primary btn-block" type="submit" id="submitOrder">تأكيد الطلب (الدفع عند الاستلام)</button>
+    </form>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
